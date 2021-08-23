@@ -4,7 +4,7 @@ const http = require('http');
 const socketIo = require('socket.io');
 const { joinUser, getCurrentUser, userDisconnect } = require('./src/users');
 
-const port = 3333;
+const port = process.env.PORT;
 
 const app = express();
 app.use(cors());
@@ -14,8 +14,6 @@ app.get('/', (_, res) => {
 });
 
 const server = http.createServer(app);
-
-var messages = [];
 
 const io = socketIo(server, {
   cors: {
