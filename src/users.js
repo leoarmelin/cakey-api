@@ -1,11 +1,14 @@
 const users = [];
 
 function joinUser(id, username, roomname) {
-  const user = { id, username, roomname };
+  const user = {
+    id,
+    username,
+    roomname,
+    userColor: '#' + (((1 << 24) * Math.random()) | 0).toString(16),
+  };
 
   users.push(user);
-
-  console.log('Usuários:', users);
 
   return user;
 }

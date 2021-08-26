@@ -31,6 +31,7 @@ io.on('connection', (socket) => {
       username: user.username,
       text: `Welcome to Cakey, ${user.username}`,
       fromServer: true,
+      userColor: user.userColor,
       createdAt: new Date(),
     });
 
@@ -39,6 +40,7 @@ io.on('connection', (socket) => {
       username: user.username,
       text: `${user.username} has joined the chat`,
       fromServer: true,
+      userColor: user.userColor,
       createdAt: new Date(),
     });
   });
@@ -53,6 +55,7 @@ io.on('connection', (socket) => {
       username: user.username,
       text: text,
       fromServer: false,
+      userColor: user.userColor,
       createdAt: new Date(),
     });
   });
@@ -66,6 +69,7 @@ io.on('connection', (socket) => {
         username: user.username,
         text: `${user.username} has left the room`,
         fromServer: true,
+        userColor: user.userColor,
         createdAt: new Date(),
       });
     }
